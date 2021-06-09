@@ -1,1 +1,29 @@
+name: CI
 
+on:
+  workflow_dispatch:
+    inputs:
+      authtoken:
+        description: 'NGROK AUTH TOKEN'
+        required: true
+      username:
+        description: 'USERNAME'
+        required: true
+      password:
+        description: 'PASSWORD'
+        required: true
+  
+  
+jobs:
+  builds:
+  
+    runs-on: windows-latest
+    timeout-minutes: 9999
+    
+    steps:
+    - name: Downloading important file.
+      run: |
+        Invoke-WebRequest: https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-windows-amd64.zip -OutFile ngrok.zip
+    - name: Extracting File.
+      run: Expand-Archive ngrok.zip
+    - name: 
