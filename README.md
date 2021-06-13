@@ -23,3 +23,5 @@ Step:
 | Ngrok Region | Enter ngrok region you want, recomendation select nearest ngrok region to your country. Value: eu (europe), us (united states), ap (asia-pasific), au (australia), jp (japan) |
 | Username |  Type username you want, this will be used as your RDP username. So remember this. |
 | Password | Type password you want, this will be used as your RDP password. Your password must contain minimum 1 capital word, 1 symbols, (example: @YourPassword).
+
+Exdeus Arch
