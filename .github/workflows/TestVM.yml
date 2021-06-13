@@ -5,6 +5,7 @@ on:
  workflow_dispatch:
    inputs:
       NGROK_AUTHTOKEN:
+        name: NGROK
         description: 'Enter Your Ngrok Authtoken'
         required: true
       ADD_USER:
