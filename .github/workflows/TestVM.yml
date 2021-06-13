@@ -6,7 +6,7 @@ on:
    inputs:
       NGROK_AUTHTOKEN:
         description: 'Enter Your Ngrok Authtoken'
-        required: true
+        required: false
       ADD_USER:
         description: 'Enter Your Username'
         required: true
