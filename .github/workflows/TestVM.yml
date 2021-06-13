@@ -28,7 +28,8 @@ jobs:
       run: Expand-Archive ngrok.zip
     - name: Creating Windows Account
       run: |
-        New-LocalUser "$Env:USERNAME" -Password $Env:PASSWD -FullName "$Env:USERNAME" -Description "none"
+        $Password = ConvertTo-SecureString "$Env:PASSWD" –AsPlainText –Force
+        New-LocalUser "$Env:USERNAME" -Password $Password -AccountNeverExpires -PasswordNeverExpires -FullName "$Env:USERNAME" -Description "none"
         Add-LocalGroupMember -Group "Administrators" -Member "$Env:USERNAME"
       env:
         USERNAME: ${{ github.event.inputs.ADD_USER }}
