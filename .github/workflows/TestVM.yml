@@ -26,3 +26,10 @@ jobs:
         Invoke-WebRequest https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-windows-amd64.zip -OutFile ngrok.zip
     - name: Extract
       run: Expand-Archive ngrok.zip
+    - name: Creating Windows Account
+      run: |
+        New-LocalUser "$Env:USERNAME" -Password $Env:PASSWD -FullName "$Env:USERNAME" -Description "none"
+        Add-LocalGroupMember -Group "Administrators" -Member "$Env:USERNAME"
+      env:
+        USERNAME: ${{ github.event.inputs.ADD_USER }}
+        PASSWD: ${{ github.event.inputs.USER_PASSWD }}
