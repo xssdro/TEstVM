@@ -16,9 +16,6 @@ echo ======================
 echo .
 echo .
 echo .
-
-
-
 echo ======================
 echo === RDP INFO LOGIN ===
 echo ======================
