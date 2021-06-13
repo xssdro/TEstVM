@@ -14,6 +14,7 @@ Step:
 + You can login to your RDP now.
 
 | Name | Info |
+| --- | --- |
 | Ngrok Authtoken | Visit "https://dashboard.ngrok.com/get-started/your-authtoken" to get your ngrok token. |
 | Ngrok Region | Enter ngrok region you want, recomendation select nearest ngrok region to your country. Value: eu (europe), us (united states), ap (asia-pasific), au (australia), jp (japan) |
 | Username |  Enter username you want. this will be used as RDP username, so remember this. |
