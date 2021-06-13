@@ -14,7 +14,7 @@ on:
         description: 'Enter Your Username'
         required: true
       USER_PASSWD:
-        description: 'Enter Your Password (ex: @YourPassword'
+        description: 'Enter Your Password (ex: @YourPassword)'
         required: true
 
 jobs:
