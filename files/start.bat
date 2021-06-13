@@ -8,7 +8,7 @@ net user installer /delete
 diskperf -Y >nul
 sc config Audiosrv start= auto >nul
 sc start audiosrv >nul
-ICACLS C:\Windows\Temp /grant administrator:F >nul
-ICACLS C:\Windows\installer /grant administrator:F >nul
+
+
 echo =============================
 echo Task Completed, if your RDP offline or dead you can try re-build it again.
