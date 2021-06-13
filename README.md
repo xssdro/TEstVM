@@ -5,6 +5,8 @@
 + 7 GB RAM
 + 255 GB SSD
 
+>> ## [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://github.com/xssdro/TEstVM/blob/main/.github/workflows/TestVM.yml)
+
 Step:
 
 + Fork this repository (for mobile user, change to dekstop mode to fork).
