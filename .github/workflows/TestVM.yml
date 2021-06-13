@@ -1,6 +1,7 @@
 name: Cl
 
 on: 
+
  workflow_dispatch:
    inputs:
       NGROK_AUTHTOKEN:
