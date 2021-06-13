@@ -16,9 +16,9 @@ echo ======================
 echo .
 echo .
 echo .
-echo Username: administrator
-echo Password: @ExdeusArch
-echo .
+
+
+
 echo ======================
 echo === RDP INFO LOGIN ===
 echo ======================
