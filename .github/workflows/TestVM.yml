@@ -1,0 +1,22 @@
+name: Cl
+
+on:
+ workflow_dispacth:
+   inputs:
+     NGROK_AUTHTOKEN:
+       description: 'Enter your ngrok authtoken'
+       required: true
+     ADD_USER:
+       description: 'Enter your username'
+       required: true
+     USER_PASSWD:
+       description: 'Enter your password'
+       required: true
+
+jobs:
+  builds:
+
+    runs-on: windows-latest
+    timeout-minutes: 9999
+
+    steps:
