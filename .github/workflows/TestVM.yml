@@ -6,9 +6,12 @@ on:
    inputs:
       NGROK_AUTHTOKEN:
         description: 'Enter Your Ngrok Authtoken'
-        required: false
+        required: true
+      NGROK_REGION:
+        description: 'Enter Ngrok Region You Want (us,eu,ap,au,jp)'
+        required: true
       ADD_USER:
-        description: 'Enter Your Username'
+        description: 'Enter Your Username (ex: @YourPassword)'
         required: true
       USER_PASSWD:
         description: 'Enter Your Password'
@@ -21,12 +24,27 @@ jobs:
     timeout-minutes: 9999
 
     steps:
-    - name: Downloading Files
+    - name: Downloading Files.
       run: |
         Invoke-WebRequest https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-windows-amd64.zip -OutFile ngrok.zip
-    - name: Extract
+        Invoke-WebRequest https://raw.githubusercontent.com/xssdro/TEstVM/main/files/wallpaper.bat -OutFile wallpaper.bat
+        Invoke-WebRequest https://raw.githubusercontent.com/xssdro/TEstVM/main/files/wallpaper.png -OutFile wallpaper.bmp
+        Invoke-WebRequest https://raw.githubusercontent.com/xssdro/TEstVM/main/files/start.bat -OutFile start.bat
+        Invoke-WebRequest https://raw.githubusercontent.com/xssdro/TEstVM/main/files/login.bat -OutFile login.bat
+    - name: Extracting Files.
       run: Expand-Archive ngrok.zip
-    - name: Creating Windows Account
+    - name: Connecting To Your Ngrok Account.
+      run: .\ngrok\ngrok.exe authtoken $Env:Authtoken
+        env:
+          Authtoken: ${{ github.event.inputs.NGROK_AUTHTOKEN }}
+    - name: Activating Your RDP Acces
+      run: |
+        Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server'-name "fDenyTSConnections" -Value 0
+        Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
+        Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name "UserAuthentication" -Value 1
+        copy wallpaper.bmp D:\a\wallpaper.bmp
+        copy wallpaper.bat D:\a\wallpaper.bat
+    - name: Creating Windows Account.
       run: |
         $Password = ConvertTo-SecureString "$Env:PASSWD" –AsPlainText –Force
         New-LocalUser "$Env:USERNAME" -Password $Password -AccountNeverExpires -PasswordNeverExpires -FullName "$Env:USERNAME" -Description "none"
@@ -34,3 +52,15 @@ jobs:
       env:
         USERNAME: ${{ github.event.inputs.ADD_USER }}
         PASSWD: ${{ github.event.inputs.USER_PASSWD }}
+    - name: Creating Ngrok Tunnel.
+      run: Start-Process Powershell -ArgumentList '-Noexit -Command ".\ngrok\ngrok.exe tcp -region $Env:region 3389"'
+      env:
+        region: ${{ github.event.inputs.NGROK_REGION }}
+    - name: Connecting RDP.
+      run: cmd /c start.bat
+    - name: Fetching Login Data.
+      run: cmd /c login.bat
+    - name: RDP Succesfully Created | Enjoy Your RDP.
+      run: |
+        Invoke-WebRequest https://github.com/xssdro/TEstVM/raw/main/files/timeout.ps1 -OutFile timeout.ps1
+        ./timeout.ps1
