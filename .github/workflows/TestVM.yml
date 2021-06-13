@@ -1,16 +1,16 @@
 name: Cl
 
-on:
- workflow_dispacth:
+on: 
+ workflow_dispatch:
    inputs:
       NGROK_AUTHTOKEN:
-        description: 'Enter your ngrok authtoken'
+        description: 'Enter Your Ngrok Authtoken'
         required: true
       ADD_USER:
-        description: 'Enter your username'
+        description: 'Enter Your Username'
         required: true
       USER_PASSWD:
-        description: 'Enter your password'
+        description: 'Enter Your Password'
         required: true
 
 jobs:
