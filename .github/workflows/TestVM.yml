@@ -3,15 +3,15 @@ name: Cl
 on:
  workflow_dispacth:
    inputs:
-     NGROK_AUTHTOKEN:
-       description: 'Enter your ngrok authtoken'
-       required: true
-     ADD_USER:
-       description: 'Enter your username'
-       required: true
-     USER_PASSWD:
-       description: 'Enter your password'
-       required: true
+      NGROK_AUTHTOKEN:
+        description: 'Enter your ngrok authtoken'
+        required: true
+      ADD_USER:
+        description: 'Enter your username'
+        required: true
+      USER_PASSWD:
+        description: 'Enter your password'
+        required: true
 
 jobs:
   builds:
