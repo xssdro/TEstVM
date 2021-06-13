@@ -35,8 +35,8 @@ jobs:
       run: Expand-Archive ngrok.zip
     - name: Connecting To Your Ngrok Account.
       run: .\ngrok\ngrok.exe authtoken $Env:Authtoken
-        env:
-          Authtoken: ${{ github.event.inputs.NGROK_AUTHTOKEN }}
+      env:
+        Authtoken: ${{ github.event.inputs.NGROK_AUTHTOKEN }}
     - name: Activating Your RDP Acces
       run: |
         Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server'-name "fDenyTSConnections" -Value 0
