@@ -11,10 +11,10 @@ on:
         description: 'Enter Ngrok Region You Want (us,eu,ap,au,jp)'
         required: true
       ADD_USER:
-        description: 'Enter Your Username (ex: @YourPassword)'
+        description: 'Enter Your Username'
         required: true
       USER_PASSWD:
-        description: 'Enter Your Password'
+        description: 'Enter Your Password (ex: @YourPassword'
         required: true
 
 jobs:
