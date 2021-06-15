@@ -12,7 +12,7 @@ Step:
 + Fork this repository (for mobile user, change to dekstop mode to fork).
 + Login/ Register Ngrok Account at "https://ngrok.com/".
 + Go to "https://dashboard.ngrok.com/get-started/your-authtoken" to get ngrok authtoken.
-+ Go to Action > Select Workflows > Cl > Run Workflows > Enter Your Ngrok Authtoken, Ngrok Region, Username, Password.
++ Go to Action > Select Workflows > Cl > Run Workflows > Type Your Ngrok Authtoken, Ngrok Region, Username, Password.
 
 + Click Run Workflow, after that go to section "Fetching Login Data" to see your RDP IP Address.
 + You can login to your RDP now.
