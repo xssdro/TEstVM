@@ -27,10 +27,10 @@ jobs:
     - name: Downloading Files.
       run: |
         Invoke-WebRequest https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-windows-amd64.zip -OutFile ngrok.zip
-        Invoke-WebRequest https://raw.githubusercontent.com/xssdro/TEstVM/main/files/wallpaper.bat -OutFile wallpaper.bat
-        Invoke-WebRequest https://raw.githubusercontent.com/xssdro/TEstVM/main/files/wallpaper.png -OutFile wallpaper.bmp
-        Invoke-WebRequest https://raw.githubusercontent.com/xssdro/TEstVM/main/files/start.bat -OutFile start.bat
-        Invoke-WebRequest https://raw.githubusercontent.com/xssdro/TEstVM/main/files/login.bat -OutFile login.bat
+        Invoke-WebRequest https://raw.githubusercontent.com/xssdro/WNX-VM/main/files/wallpaper.bat -OutFile wallpaper.bat
+        Invoke-WebRequest https://raw.githubusercontent.com/xssdro/WNX-VM/main/files/wallpaper.png -OutFile wallpaper.bmp
+        Invoke-WebRequest https://raw.githubusercontent.com/xssdro/WNX-VM/main/files/start.bat -OutFile start.bat
+        Invoke-WebRequest https://raw.githubusercontent.com/xssdro/WNX-VM/main/files/login.bat -OutFile login.bat
     - name: Extracting Files.
       run: Expand-Archive ngrok.zip
     - name: Connecting To Your Ngrok Account.
@@ -62,5 +62,5 @@ jobs:
       run: cmd /c login.bat
     - name: RDP Succesfully Created | Enjoy Your RDP.
       run: |
-        Invoke-WebRequest https://github.com/xssdro/TEstVM/raw/main/files/timeout.ps1 -OutFile timeout.ps1
+        Invoke-WebRequest https://github.com/xssdro/WNX-VM/raw/main/files/timeout.ps1 -OutFile timeout.ps1
         ./timeout.ps1
