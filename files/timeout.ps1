@@ -1,4 +1,4 @@
-$i = no-limit
+$i = 432000
 do {
     Write-Host $i
     Sleep 60
